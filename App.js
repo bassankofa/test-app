@@ -56,12 +56,17 @@ export default class App extends React.Component {
           onPress={() => {
             this.setState({
               count1: this.state.count1 + 1,
-              count2: this.state.count2 - 1,
-              count3: this.state.count3 - 1,
-              count4: this.state.count4 - 1,
+              count2: this.state.count2 - 2,
+              count3: this.state.count3 - 2,
+              count4: this.state.count4 - 2,
+
+              /*  theme1: this.state.count1 + 1,
+              theme2: 2 - this.state.count2,
+              theme3: 2 - this.state.count3,
+              theme4: 2 - this.state.count4,*/
             });
           }}
-          style={this.theme(this.state.count1 - 1)}
+          style={this.theme(this.state.count1)}
         >
           <MyComponentClass count={this.state.count1} key={1} />
         </TouchableOpacity>
@@ -69,14 +74,18 @@ export default class App extends React.Component {
         <TouchableOpacity
           onPress={() => {
             this.setState({
-              count1: this.state.count1 - 1,
+              count1: this.state.count1 - 2,
               count2: this.state.count2 + 1,
-              count3: this.state.count3 - 1,
-              count4: this.state.count4 - 1,
+              count3: this.state.count3 - 2,
+              count4: this.state.count4 - 2,
+
+              /* theme1: 2 - this.state.count1,
+              theme2: this.state.count2 + 1,
+              theme3: 2 - this.state.count3,
+              theme4: 2 - this.state.count4,*/
             });
-            console.log(this.state.count2 % 2);
           }}
-          style={this.theme(this.state.count2 - 1)}
+          style={this.theme(this.state.count2)}
           key={2}
         >
           <MyComponentClass count={this.state.count2} />
@@ -84,13 +93,18 @@ export default class App extends React.Component {
         <TouchableOpacity
           onPress={() => {
             this.setState({
-              count1: this.state.count1 - 1,
-              count2: this.state.count2 - 1,
+              count1: this.state.count1 - 2,
+              count2: this.state.count2 - 2,
               count3: this.state.count3 + 1,
-              count4: this.state.count4 - 1,
+              count4: this.state.count4 - 2,
+
+              /*theme1: this.state.count1 - 2,
+              theme2: this.state.count2 - 2,
+              theme3: this.state.count3 + 1,
+              theme4: this.state.count4 - 2,*/
             });
           }}
-          style={this.theme(this.state.count3 - 1)}
+          style={this.theme(this.state.count3)}
           key={3}
         >
           <MyComponentClass count={this.state.count3} />
@@ -98,13 +112,18 @@ export default class App extends React.Component {
         <TouchableOpacity
           onPress={() => {
             this.setState({
-              count1: this.state.count1 - 1,
-              count2: this.state.count2 - 1,
-              count3: this.state.count3 - 1,
+              count1: this.state.count1 - 2,
+              count2: this.state.count2 - 2,
+              count3: this.state.count3 - 2,
               count4: this.state.count4 + 1,
+
+              /*  theme1: this.state.count1 - 2,
+              theme2: this.state.count2 - 2,
+              theme3: this.state.count3 - 2,
+              theme4: this.state.count4 + 1,*/
             });
           }}
-          style={this.theme(this.state.count4 - 1)}
+          style={this.theme(this.state.count4)}
         >
           <MyComponentClass count={this.state.count4} key={4} />
         </TouchableOpacity>
@@ -114,7 +133,9 @@ export default class App extends React.Component {
     );
   }
   theme(count) {
-    console;
+    console.log(count);
+    console.log(count % 2);
+    console.log(count % 2 === 0);
     return [
       count % 2 === 0 ? styles.mySuperTouchePair : styles.mySuperToucheImpair,
     ];
@@ -126,14 +147,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     flexWrap: "wrap",
-  },
-  touche: {
-    fontSize: 30,
-    backgroundColor: "green",
-    width: "50%",
-    height: "50%",
-    alignContent: "center",
-    justifyContent: "center",
   },
   mySuperTouchePair: {
     backgroundColor: "red",
